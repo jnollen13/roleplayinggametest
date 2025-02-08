@@ -3,7 +3,11 @@ namespace SpriteKind {
     export const Jodim = SpriteKind.create()
     export const villager1 = SpriteKind.create()
     export const villager2 = SpriteKind.create()
-    export const vendor = SpriteKind.create()
+    export const vender0 = SpriteKind.create()
+    export const vender1 = SpriteKind.create()
+}
+namespace StatusBarKind {
+    export const money = StatusBarKind.create()
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level8`)
@@ -19,6 +23,12 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, l
     statusbar2 = statusbars.create(20, 4, StatusBarKind.EnemyHealth)
     statusbar2.attachToSprite(myEnemy)
     statusbar2.max = 13
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.vender0, function (sprite, otherSprite) {
+    if (controller.A.isPressed()) {
+        game.showLongText("here have a banana. ", DialogLayout.Bottom)
+        bananas += 1
+    }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (start == 1) {
@@ -44,16 +54,21 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(3)
         scene.setBackgroundImage(assets.image`bg1`)
         pause(1000)
-        tiles.setCurrentTilemap(tilemap`level2`)
+        tiles.setCurrentTilemap(tilemap`prison`)
         playersprite.setImage(assets.image`plaas`)
         tiles.placeOnRandomTile(playersprite, sprites.dungeon.floorLight5)
         scene.cameraFollowSprite(playersprite)
         controller.moveSprite(playersprite)
         start = 0
-        statusbar = statusbars.create(20, 4, StatusBarKind.Health)
+        statusbar = statusbars.create(28, 4, StatusBarKind.Health)
         statusbar.attachToSprite(playersprite)
         statusbar.setLabel("HP")
         statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
+        statusbar3 = statusbars.create(20, 4, StatusBarKind.money)
+        statusbar3.attachToSprite(playersprite, 6, 10)
+        statusbar3.setColor(5, 2, 0)
+        statusbar3.value = randint(0, randint(0, randint(0, 2)))
+        statusbar3.max = randint(100, 300)
     }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -124,7 +139,14 @@ statusbars.onZero(StatusBarKind.EnemyHealth, function (status) {
     mySprite2.setFlag(SpriteFlag.Invisible, true)
     tiles.setCurrentTilemap(tilemap`level10`)
     tiles.placeOnTile(playersprite, tiles.getTileLocation(6, 15))
+    statusbar3.value += randint(1, 10)
     game.showLongText("it's night", DialogLayout.Bottom)
+})
+statusbars.onZero(StatusBarKind.Health, function (status) {
+    game.setGameOverEffect(false, effects.dissolve)
+    game.setGameOverMessage(false, "you failed...")
+    game.setGameOverPlayable(false, music.melodyPlayable(music.powerDown), true)
+    game.gameOver(false)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Jodim, function (sprite, otherSprite) {
     if (controller.A.isPressed() && swap == 0) {
@@ -206,14 +228,19 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, l
     mySprite5 = sprites.create(assets.image`asset4`, SpriteKind.villager2)
     tiles.placeOnTile(mySprite5, tiles.getTileLocation(6, randint(23, 24)))
     mySprite5.setScale(0.75, ScaleAnchor.Middle)
-    mySprite6 = sprites.create(assets.image`monkey0`, SpriteKind.vendor)
+    mySprite6 = sprites.create(assets.image`monkey0`, SpriteKind.vender0)
     tiles.placeOnTile(mySprite6, tiles.getTileLocation(13, 31))
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.vendor, function (sprite, otherSprite) {
-    if (controller.A.isPressed()) {
-        game.showLongText("here have a banana. ", DialogLayout.Bottom)
-        bananas += 1
-    }
+    mySprite7 = sprites.create(assets.image`saas`, SpriteKind.villager2)
+    scene.setBackgroundImage(assets.image`bg3`)
+    animation.runImageAnimation(
+    mySprite7,
+    assets.animation`batflapL0`,
+    200,
+    true
+    )
+    tiles.placeOnTile(mySprite7, tiles.getTileLocation(2, 2))
+    mySprite8 = sprites.create(assets.image`duck`, SpriteKind.vender1)
+    tiles.placeOnTile(mySprite8, tiles.getTileLocation(21, 31))
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.villager1, function (sprite, otherSprite) {
     if (controller.A.isPressed()) {
@@ -229,7 +256,8 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.floorLight4, function (sp
     game.setDialogFrame(assets.image`df`)
     playersprite.setPosition(27, 75)
     game.showLongText("you made it out!", DialogLayout.Bottom)
-    game.showLongText("we need to make it to a forest.", DialogLayout.Bottom)
+    game.showLongText("we need to ", DialogLayout.Bottom)
+    game.showLongText("make it to a forest.", DialogLayout.Bottom)
     game.showLongText("lets go!", DialogLayout.Bottom)
     tiles.setCurrentTilemap(tilemap`level6`)
     mySprite2.setFlag(SpriteFlag.Invisible, true)
@@ -241,6 +269,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         statusbar2.value += randint(-1, -3)
     }
 })
+let mySprite8: Sprite = null
+let mySprite7: Sprite = null
 let mySprite6: Sprite = null
 let mySprite5: Sprite = null
 let mySprite4: Sprite = null
@@ -249,6 +279,7 @@ let mySprite: Sprite = null
 let mySprite2: Sprite = null
 let open = 0
 let Jodimsprite: Sprite = null
+let statusbar3: StatusBarSprite = null
 let statusbar: StatusBarSprite = null
 let statusbar2: StatusBarSprite = null
 let myEnemy: Sprite = null

@@ -28,6 +28,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.vender0, function (sprite, other
     if (controller.A.isPressed()) {
         game.showLongText("here have a banana. ", DialogLayout.Bottom)
         bananas += 1
+        pause(200)
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -205,7 +206,14 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSp
 sprites.onOverlap(SpriteKind.Player, SpriteKind.villager2, function (sprite, otherSprite) {
     if (controller.A.isPressed()) {
         game.showLongText("watch out for the knights.", DialogLayout.Bottom)
-        pause(100)
+        pause(200)
+    }
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.vender1, function (sprite, otherSprite) {
+    if (controller.A.isPressed() && (5 as any) < (0 as any)) {
+        game.showLongText("here you go!", DialogLayout.Bottom)
+    } else if (controller.A.isPressed()) {
+        game.showLongText("go away you don't have enough gold!", DialogLayout.Bottom)
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, location) {
@@ -245,7 +253,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, l
 sprites.onOverlap(SpriteKind.Player, SpriteKind.villager1, function (sprite, otherSprite) {
     if (controller.A.isPressed()) {
         game.showLongText("Hi!", DialogLayout.Bottom)
-        pause(100)
+        pause(200)
     }
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.floorLight4, function (sprite, location) {

@@ -1566,6 +1566,50 @@ f b c b d d d 4 5 d b b 2 2 b 5
 . . f b d d d b b d d f f f f . 
 . . f f f c c b d d d f . . . . 
 `;
+            case "image38":
+            case "darksoldierL":return img`
+...........f..ffffff...f
+..........f..f2feeeeff..
+............f222feeeeff.
+............feeeeffeeef.
+...........fe2222eeffff.
+........f..f2effff222ef.
+........f..fffeeefffffff
+...........fee44fbe44eff
+............feddf14d4eef
+.............fdddd4eeef.
+.........f...fe444eddf..
+..........f..ccc22eddf..
+.............cdc22fee...
+............cddc4444f..f
+...........cddcfffff....
+..........cddc..fff.....
+..........cdc...........
+..........cc..f.....f...
+...............f...f....
+........................
+........................
+........................
+........................
+........................
+`;
+            case "image39":
+            case "flaming":return img`
+. . . . e e e . 5 5 . e e e 
+. . . . c d d c 2 2 c d d c 
+. 5 . . c b d d 4 f d d b c 
+. 2 5 . c 3 b d 4 4 d b 3 c 
+. . 4 2 f b 3 d 4 d d 3 b f 
+5 . . 4 2 d d d d d d d d e 
+4 f b . 2 4 f 2 d d 2 f d 5 
+2 d f . f d d d d d d d 4 2 
+f d f . f 2 d d b b d 4 4 f 
+f d f 5 b b 2 2 2 2 2 2 f . 
+f b d 4 4 d d d d d d b f . 
+2 f f f 2 4 b d d d d d f . 
+. . . f 2 4 f d f f f d f . 
+. . . f f . . f f . . f f . 
+`;
         }
         return null;
     })

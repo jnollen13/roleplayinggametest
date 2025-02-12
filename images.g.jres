@@ -199,6 +199,16 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "flaming max"
     },
+    "image38": {
+        "data": "hwQYABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAPAAAAAAAAAAAAAAAAAA8AAAAAAADwAAAAAPAAwMwAAAAPAP//AAAA3M0AAAAA/y7vDwDA3QwAAADw4uLv/s/czQAAAAAv4vJO3c7dDPAAAAD/4vJO3cTMDwAPAADv7/L+3yRC/wAAAADv/v6/0SRC/wAAAADv/i7vRO5P/wAAAADv7i9P7d1ODwAPAADw7i9P5N3+APAAAADw7+/v7v8AAAAAAAAA/////gAAAAAAAAAPAAD/DwDwAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "darksoldierL"
+    },
+    "image39": {
+        "data": "hwQOAA4AAAAAAFAk/y8AAAAlAN/d+wAAAFAE+//9AAAAAEIAUPT/AM7ML/K/JPIA3jvb1LJNBADevdPfLb0PAMDd3dIt3f0AJUTU3Svd/wAlT93dK90PAMDd3dIt3Q8A3r3T3yTb/QDeO9tN9P//AM7M7yUPAAAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "flaming"
+    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",

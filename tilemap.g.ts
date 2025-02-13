@@ -227,25 +227,6 @@ namespace myTiles {
 ..................................................
 ..................................................
 `, [myTiles.transparency16,myTiles.tile1,sprites.castle.tileDarkGrass1,sprites.dungeon.purpleOuterEast1,sprites.dungeon.purpleInnerSouthWest,sprites.dungeon.purpleOuterNorth0,sprites.dungeon.purpleInnerSouthEast,sprites.dungeon.purpleOuterNorth1,sprites.dungeon.purpleOuterWest0,sprites.dungeon.purpleInnerNorthEast,sprites.dungeon.purpleOuterSouth1,sprites.dungeon.purpleInnerNorthWest,sprites.dungeon.floorDark2,sprites.dungeon.purpleOuterSouthWest,sprites.dungeon.purpleOuterNorthEast,sprites.dungeon.purpleOuterNorthWest,sprites.dungeon.purpleOuterSouthEast,sprites.dungeon.floorDark5,sprites.dungeon.stairWest,sprites.dungeon.purpleOuterSouth2,sprites.dungeon.purpleSwitchUp,myTiles.tile16,sprites.castle.tileDarkGrass3], TileScale.Sixteen);
-            case "level3":
-            case "level3":return tiles.createTilemap(hex`1000100003030303030303030303030303030303070606060606060606060607060706050702030303030302030303070207020307020606060607020306070202070207070203030302070203020702030702070702060607020702060207020707020701010302070207030303070207060207040206020702060606060602070203070101030207030302030303030702060703020602070606020707070607030207070203030703030206060702060602070702070606060702030206020303020707020602030206020703020307060207070203030703030307060207060203070702060606070606060203070302060707030303030703030303070707030307`, img`
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 . . . . . . . . . . 2 . 2 . . 
-2 . 2 2 2 2 2 . 2 2 2 2 . 2 . 2 
-2 . . . . . 2 . 2 . 2 . . 2 . 2 
-2 . 2 2 2 . 2 . 2 . 2 . 2 2 . 2 
-2 . . . 2 . 2 . . . 2 . 2 2 . 2 
-2 2 2 . 2 . 2 2 2 2 2 . 2 . . 2 
-. . . . 2 . . . . . . . 2 . 2 2 
-2 2 2 . 2 2 2 . 2 2 2 2 2 . . 2 
-2 . . . 2 . . . 2 2 2 . 2 2 . 2 
-2 . 2 2 2 2 2 . . . 2 . . . . 2 
-2 . 2 . . . 2 . 2 . . . 2 2 . 2 
-2 . . . 2 . . . 2 2 . 2 2 . . 2 
-2 . 2 2 2 2 2 2 2 . . 2 . . 2 2 
-2 . . . . 2 . . . . 2 2 2 . . 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-`, [myTiles.transparency16,myTiles.tile2,sprites.castle.tileGrass3,myTiles.tile13,myTiles.tile14,myTiles.tile15,myTiles.tile17,myTiles.tile21], TileScale.Sixteen);
             case "maze3":
             case "level7":return tiles.createTilemap(hex`1000100001010101010101010101010101040101010101010103030301030303010303010203030301030103030301010101030101010103010301010101010303010301010303030103030301030303010103010103010301010103010301010101030101030103030301030103010303030301010301010101010301030101010103010103030303030303010301030303030101030101010101010103010301010301010301030303030303030103030103010103030301010101010101010301010101030103030303030303030303030301010301010101010101010103010103010103030303030303030301030303030101010101010101010101010101010101`, img`
 2 2 2 2 2 2 2 2 2 2 2 2 2 . 2 2 
@@ -582,6 +563,25 @@ namespace myTiles {
 2 . . . . . . . . . . . . . 2 . 
 2 2 2 2 2 . 2 2 2 2 2 2 2 2 2 . 
 `, [myTiles.transparency16,sprites.castle.tileGrass3,myTiles.tile2,myTiles.tile3,myTiles.tile7,myTiles.tile45], TileScale.Sixteen);
+            case "level3":
+            case "level3":return tiles.createTilemap(hex`1000100003030303030303030303030303030303070606060606060606060607060706050702030303030302030303070207020307020606060607020706070202070207070203030302070207020702030702070702060607020702060207020707020701010302070207030303070207060207040206020702060606060602070203070101030207030302030303030702060703020602070606020707070607030207070203030703030206060702060602070702070606060702030206020303020707020602030206020703020307060207070203030703030307060207060203070702060606070606060203070302060707030303030703030303070707030307`, img`
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+2 . . . . . . . . . . 2 . 2 . . 
+2 . 2 2 2 2 2 . 2 2 2 2 . 2 . 2 
+2 . . . . . 2 . 2 . 2 . . 2 . 2 
+2 . 2 2 2 . 2 . 2 . 2 . 2 2 . 2 
+2 . . . 2 . 2 . . . 2 . 2 2 . 2 
+2 2 2 . 2 . 2 2 2 2 2 . 2 . . 2 
+. . . . 2 . . . . . . . 2 . 2 2 
+2 2 2 . 2 2 2 . 2 2 2 2 2 . . 2 
+2 . . . 2 . . . 2 2 2 . 2 2 . 2 
+2 . 2 2 2 2 2 . . . 2 . . . . 2 
+2 . 2 . . . 2 . 2 . . . 2 2 . 2 
+2 . . . 2 . . . 2 2 . 2 2 . . 2 
+2 . 2 2 2 2 2 2 2 . . 2 . . 2 2 
+2 . . . . 2 . . . . 2 2 2 . . 2 
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+`, [myTiles.transparency16,myTiles.tile2,sprites.castle.tileGrass3,myTiles.tile13,myTiles.tile14,myTiles.tile15,myTiles.tile17,myTiles.tile21], TileScale.Sixteen);
         }
         return null;
     })

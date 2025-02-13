@@ -14,6 +14,7 @@ namespace SpriteKind {
     export const inanimate = SpriteKind.create()
     export const mailbox = SpriteKind.create()
     export const solider = SpriteKind.create()
+    export const Vpigeon = SpriteKind.create()
 }
 namespace StatusBarKind {
     export const money = StatusBarKind.create()
@@ -54,6 +55,19 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.vender0, function (sprite, other
             bananas += randint(2, 4)
             pause(200)
         }
+    }
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Vpigeon, function (sprite, otherSprite) {
+    if (swap == 0 && controller.A.isPressed()) {
+        game.showLongText("Hi!", DialogLayout.Bottom)
+        pause(200)
+    } else if (swap == 1 && controller.B.isPressed()) {
+        controller.moveSprite(playersprite, 0, 0)
+        pause(500)
+        scene.cameraShake(4, 500)
+        playersprite.follow(mySprite20)
+        mySprite20.setImage(assets.image`wounded pigeon`)
+        controller.moveSprite(playersprite, 100, 100)
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile6`, function (sprite, location) {
@@ -265,7 +279,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite, l
                 mySprite18.setImage(assets.image`stump`)
                 mySprite18.setKind(SpriteKind.inanimate)
                 tiles.setWallAt(mySprite18.tilemapLocation(), true)
-                mySprite20 = sprites.create(assets.image`sidsel`, SpriteKind.villager1)
+                mySprite20 = sprites.create(assets.image`sidsel`, SpriteKind.Vpigeon)
                 tiles.placeOnTile(mySprite20, tiles.getTileLocation(18, 5))
             }
         }
@@ -455,6 +469,18 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.villager1, function (sprite, oth
         pause(200)
     }
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.solider, function (sprite, otherSprite) {
+    if (controller.B.isPressed() && swap == 1) {
+        statusbar4.value += randint(1, 3)
+        pause(200)
+        statusbar.value += -1
+    } else if (swap == 0 && controller.B.isPressed()) {
+        statusbar4.value += -1
+    } else if (controller.A.isPressed()) {
+        game.showLongText("DIE!!", DialogLayout.Bottom)
+        pause(200)
+    }
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.statue0, function (sprite, otherSprite) {
     if (controller.A.isPressed()) {
         sprites.destroyAllSpritesOfKind(SpriteKind.villager1)
@@ -524,6 +550,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile35`, function (sprite, 
     statusbar4.attachToSprite(mySprite21)
     statusbar4.max = 34
     tiles.placeOnRandomTile(mySprite21, sprites.dungeon.floorDark2)
+    mySprite21.follow(playersprite, 75)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile11`, function (sprite, location) {
     if (controller.A.isPressed() && freed == 0) {
@@ -548,11 +575,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         pause(57)
     }
 })
-let statusbar4: StatusBarSprite = null
 let mySprite21: Sprite = null
+let statusbar4: StatusBarSprite = null
 let Jodimsprite: Sprite = null
 let open = 0
-let mySprite20: Sprite = null
 let mySprite9: Sprite = null
 let mySprite19: Sprite = null
 let mySprite18: Sprite = null
@@ -577,6 +603,7 @@ let statusbar: StatusBarSprite = null
 let mySprite2: Sprite = null
 let villagein = 0
 let freed2 = 0
+let mySprite20: Sprite = null
 let gold = 0
 let bannagain = 0
 let statusbar2: StatusBarSprite = null

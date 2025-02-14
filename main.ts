@@ -62,12 +62,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Vpigeon, function (sprite, other
         game.showLongText("Hi!", DialogLayout.Bottom)
         pause(200)
     } else if (swap == 1 && controller.B.isPressed()) {
-        controller.moveSprite(playersprite, 0, 0)
-        pause(500)
-        scene.cameraShake(4, 500)
-        playersprite.follow(mySprite20)
-        mySprite20.setImage(assets.image`wounded pigeon`)
-        controller.moveSprite(playersprite, 100, 100)
+        sprites.destroy(mySprite20, effects.spray, 2000)
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile6`, function (sprite, location) {
@@ -114,6 +109,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.mailbox, function (sprite, other
         sprites.destroyAllSpritesOfKind(SpriteKind.mailbox)
         sprites.destroyAllSpritesOfKind(SpriteKind.villager4)
         game.splash("Find the globe")
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
+    for (let index = 0; index < 100; index++) {
+        statusbar.value += -1
+        pause(1)
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.villager3, function (sprite, otherSprite) {
@@ -455,6 +456,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, l
     tiles.placeOnTile(Jodimsprite, tiles.getTileLocation(31, 1))
     tiles.setCurrentTilemap(tilemap`level1`)
     tiles.placeOnRandomTile(playersprite, assets.tile`myTile9`)
+    freed = 1
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile10`, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`the castle`)
